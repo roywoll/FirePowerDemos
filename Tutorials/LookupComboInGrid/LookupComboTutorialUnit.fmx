@@ -1,0 +1,180 @@
+object Form117: TForm117
+  Left = 0
+  Top = 0
+  Caption = 'Form117'
+  ClientHeight = 468
+  ClientWidth = 579
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object wwDataGrid1: TwwDataGrid
+    Touch.InteractiveGestures = [Pan]
+    Align = Client
+    EnableDragHighlight = False
+    Size.Width = 579.000000000000000000
+    Size.Height = 468.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    DataSource = bsOrders
+    LineAttributes.LineOpacity = 1.000000000000000000
+    Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnReorder, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
+    object lkCompanyName: TwwLookupComboEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 0
+      DropDownGrid.Touch.InteractiveGestures = [Pan]
+      DropDownGrid.DisableGridUpdates = True
+      DropDownGrid.Align = Client
+      DropDownGrid.EnableDragHighlight = False
+      DropDownGrid.Size.Width = 50.000000000000000000
+      DropDownGrid.Size.Height = 50.000000000000000000
+      DropDownGrid.Size.PlatformDefault = False
+      DropDownGrid.TabOrder = 0
+      DropDownGrid.DataSource = bsCustomers
+      DropDownGrid.LineAttributes.DataRowLines = False
+      DropDownGrid.LineAttributes.LineOpacity = 1.000000000000000000
+      DropDownGrid.Options = [dgTitles, dgColumnResize, dgColumnReorder, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
+      DropDownWidth = 0
+      LookupOptions.PopupType = UseDialog
+      LookupSource = bsCustomers
+      LookupField = 'CustomerNo'
+      Position.X = 200.000000000000000000
+      Position.Y = 320.000000000000000000
+      Size.Width = 164.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      object lkCompanyCompanyName: TwwGridColumn
+        FieldName = 'CompanyName'
+        Title = 'CompanyName'
+        Width = 317
+        Index = 0
+      end
+      object lkCompanyCustomerNo: TwwGridColumn
+        FieldName = 'CustomerNo'
+        Title = 'CustomerNo'
+        Width = 85
+        Index = 1
+      end
+    end
+    object wwDataGrid1CustomerNo: TwwGridColumn
+      FieldName = 'CustomerNo'
+      Title = 'CustomerNo'
+      Width = 85
+      Index = 0
+    end
+    object wwDataGrid1LookupCompany: TwwGridColumn
+      FieldName = 'LookupCompany'
+      ControlType = gdctCustomControl
+      Title = 'LookupCompany'
+      Width = 200
+      CustomControl = lkCompanyName
+      Index = 1
+    end
+    object wwDataGrid1InvoiceNo: TwwGridColumn
+      FieldName = 'InvoiceNo'
+      Title = 'InvoiceNo'
+      Width = 85
+      Index = 2
+    end
+    object wwDataGrid1PaymentMethod: TwwGridColumn
+      FieldName = 'PaymentMethod'
+      Title = 'PaymentMethod'
+      Width = 96
+      Index = 3
+    end
+    object wwDataGrid1TotalInvoice: TwwGridColumn
+      FieldName = 'TotalInvoice'
+      Title = 'TotalInvoice'
+      Width = 85
+      Index = 4
+    end
+    object wwDataGrid1PurchaseDate: TwwGridColumn
+      FieldName = 'PurchaseDate'
+      Title = 'PurchaseDate'
+      Width = 85
+      Index = 5
+    end
+    object wwDataGrid1BalanceDue: TwwGridColumn
+      FieldName = 'BalanceDue'
+      Title = 'BalanceDue'
+      Width = 85
+      Index = 6
+    end
+  end
+  object FPConnection: TFDConnection
+    Params.Strings = (
+      'ConnectionDef=FirePowerSQLite')
+    Connected = True
+    LoginPrompt = False
+    Left = 200
+    Top = 192
+  end
+  object OrdersTable: TFDTable
+    Active = True
+    Connection = FPConnection
+    FormatOptions.AssignedValues = [fvSortLocale]
+    FormatOptions.SortLocale = 0
+    UpdateOptions.UpdateTableName = 'Orders'
+    TableName = 'Orders'
+    Left = 304
+    Top = 264
+    object OrdersTableCustomerNo: TIntegerField
+      FieldName = 'CustomerNo'
+      Origin = 'CustomerNo'
+    end
+    object OrdersTableInvoiceNo: TIntegerField
+      FieldName = 'InvoiceNo'
+      Origin = 'InvoiceNo'
+    end
+    object OrdersTablePaymentMethod: TWideMemoField
+      FieldName = 'PaymentMethod'
+      Origin = 'PaymentMethod'
+      BlobType = ftWideMemo
+    end
+    object OrdersTableTotalInvoice: TFloatField
+      FieldName = 'TotalInvoice'
+      Origin = 'TotalInvoice'
+    end
+    object OrdersTablePurchaseDate: TDateField
+      FieldName = 'PurchaseDate'
+      Origin = 'PurchaseDate'
+    end
+    object OrdersTableBalanceDue: TFloatField
+      FieldName = 'BalanceDue'
+      Origin = 'BalanceDue'
+    end
+    object OrdersTableLookupCompany: TStringField
+      FieldKind = fkLookup
+      FieldName = 'LookupCompany'
+      LookupDataSet = CustomerTable
+      LookupKeyFields = 'CustomerNo'
+      LookupResultField = 'CompanyName'
+      KeyFields = 'CustomerNo'
+      Size = 35
+      Lookup = True
+    end
+  end
+  object CustomerTable: TFDTable
+    Active = True
+    IndexFieldNames = 'CustomerNo'
+    Connection = FPConnection
+    FormatOptions.AssignedValues = [fvSortLocale]
+    FormatOptions.SortLocale = 0
+    UpdateOptions.UpdateTableName = 'fdcustomer'
+    TableName = 'fdcustomer'
+    Left = 312
+    Top = 136
+  end
+  object bsOrders: TBindSourceDB
+    DataSet = OrdersTable
+    ScopeMappings = <>
+    Left = 368
+    Top = 264
+  end
+  object bsCustomers: TBindSourceDB
+    DataSet = CustomerTable
+    ScopeMappings = <>
+    Left = 384
+    Top = 192
+  end
+end

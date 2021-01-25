@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/12/04 09:53:32.000.135,=C:\Users\roywoll\Documents\Embarcadero\Studio\Projects\Unit117.pas</Transaction>
+    <Transaction>2020/12/04 11:41:58.000.997,C:\Users\roywoll\Documents\Embarcadero\Studio\Projects\Project147.dproj=C:\Users\roywoll\Documents\Embarcadero\Studio\Projects\Project147.dproj</Transaction>
+    <Transaction>2021/01/22 19:28:48.040,C:\Users\roywoll\Documents\woll2woll\Blog\LookupComboEdit\PLookupComboTutorial.dproj=C:\Users\roywoll\Documents\Embarcadero\Studio\Projects\Project147.dproj</Transaction>
+    <Transaction>2021/01/22 19:29:08.724,C:\Users\roywoll\Documents\woll2woll\Blog\LookupComboEdit\LookupComboTutorialUnit.pas=C:\Users\roywoll\Documents\Embarcadero\Studio\Projects\Unit117.pas</Transaction>
+    <Transaction>2021/01/22 19:29:08.724,C:\Users\roywoll\Documents\woll2woll\Blog\LookupComboEdit\LookupComboTutorialUnit.fmx=C:\Users\roywoll\Documents\Embarcadero\Studio\Projects\Unit117.fmx</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<PiMac iOSSimulator="iPhone5"/>
+	</ActiveMobileDevice>
+</BorlandProject>
